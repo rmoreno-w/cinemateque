@@ -8,6 +8,6 @@ class MovieTheater < ApplicationRecord
       sessions << room.sessions if !room.sessions.empty?
     end
 
-    return sessions
+    return sessions.flatten
   end
 end

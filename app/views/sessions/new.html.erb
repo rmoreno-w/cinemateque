@@ -1,0 +1,15 @@
+<%= form_with(model: [@movie_theater, @session], class: 'flex flex-col gap-4') do |f| %>
+    <%= f.label :weekday %>
+    <%= f.collection_select :weekday, Session.weekdays.each_pair.map { |key, value| [I18n.t("#{key}"), value] }, :second, :first %>
+
+    <%= f.label :movie %>
+    <%= f.collection_select :movie, @movies, :id, :title %>
+
+    <%= f.label :room %>
+    <%= f.collection_select :room, @rooms, :id, :name %>
+
+    <%= f.label :start_time %>
+    <%= f.time_field :start_time %>
+
+    <%= f.submit %>
+<% end %>

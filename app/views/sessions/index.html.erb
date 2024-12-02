@@ -1,10 +1,11 @@
-<%= page_title(t('.title'))%>
+<h1 class="text-2xl font-bold mb-10">Sessões de <%= @movie_theater.name %></h1>
+<%= link_to 'Criar Sessão', new_movie_theater_session_path(@movie_theater), class: 'p-4 bg-green-400 mb-4' %>
 <div class="flex flex-col">
     <% if @sessions.empty? %>
         <p>Ainda não há Sessões para este Cinema</p>
     <% else %>
         <% @sessions.each do |session| %>
-            <p> - <%= t(@session.weekday) %> - <%= l(@session.start_time, format: :time) %></p>
+            <p><%= t(session.movie.title) %> - <%= t(session.weekday, locale: "pt-BR") %> - <%= l(session.start_time, format: :time) %></p>
         <% end %>
     <% end %>
 </div>

@@ -3,7 +3,25 @@ class SessionsController < ApplicationController
 
   def index
     @sessions = @movie_theater.sessions
-    puts @sessions
+  end
+
+  def new
+    @session = Session.new()
+    @movies = Movie.all
+    @rooms = @movie_theater.rooms
+  end
+
+  def create
+    session_params = params.require(session).permit(:movie_id, :room_id, :start_time, :weekday)
+
+    @session = Session.new(session_params)
+
+    if @session.save
+      redirect_to movie_theater_sessions(@movie_theater), notice: 'Sessão criada com sucesso'
+    else
+      flash.now[:alert] = "Erro ao criar sessão"
+      render 'new'
+    end
   end
 
   private

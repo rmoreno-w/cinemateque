@@ -28,3 +28,5 @@ pt-BR:
       session:
         weekday: Dia da Semana
         start_time: Horário de Início
+        room: Sala
+        movie: Filme
