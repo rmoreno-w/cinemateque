@@ -11,4 +11,5 @@
   <%= render room %>
 <% end %>
 </div>
+<%= link_to 'Sessões do Cinema', movie_theater_sessions_path(@movie_theater), class: 'btn-confirm bg:transparent' %>
 <%= link_to 'Adicionar Sala', new_movie_theater_room_path(@movie_theater), class: 'btn-confirm'%>

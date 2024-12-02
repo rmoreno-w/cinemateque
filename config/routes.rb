@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   root "home#index"
   resources :movie_theaters, only: [:index, :new, :create, :show] do
     resources :rooms, only: [:new, :create] do
-      resources :sessions, only: [ :index ]
     end
+
+    resources :sessions, only: [ :index ]
   end
 
   resources :movies, only: [:index, :new, :create]

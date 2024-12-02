@@ -1,0 +1,10 @@
+<%= page_title(t('.title'))%>
+<div class="flex flex-col">
+    <% if @sessions.empty? %>
+        <p>Ainda não há Sessões para este Cinema</p>
+    <% else %>
+        <% @sessions.each do |session| %>
+            <p> - <%= t(@session.weekday) %> - <%= l(@session.start_time, format: :time) %></p>
+        <% end %>
+    <% end %>
+</div>

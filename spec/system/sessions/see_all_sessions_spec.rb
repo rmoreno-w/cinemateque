@@ -15,10 +15,10 @@ describe 'Listing all movie sessions for a movie theater' do
     within('nav') do
       click_on 'Cinemas'
     end
+    click_on 'Cine Paradiso'
     click_on 'Sessões do Cinema'
 
-    expect(page).to have_content 'Terror em Alto Mar'
-    expect(page).to have_content 'Segunda-Feira - 20:00'
-    expect(page).to have_content 'Domingo - 20:00'
+    expect(page).to have_content 'Terror em Alto Mar - Segunda-Feira - 20:00'
+    expect(page).to have_content 'Terror em Alto Mar - Domingo - 19:00'
   end
 end
